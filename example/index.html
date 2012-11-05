@@ -11,6 +11,9 @@
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="dist/leaflet.ie.css" />
     <![endif]-->
+
+
+	<script type="text/javascript" src="js/floating-1.12.js"></script>  
  
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet-src.js"></script>
@@ -103,12 +106,12 @@
 	//add riskmap and marker                                          
 		var MarkerRiskmap = new L.Marker(new L.LatLng(-6.119208,106.721878)).bindPopup("The OpenIR Flood Risk Map is a prototype image algorithmically derived from IR data. Redder areas are of higher risk. Learn more about this map at the <a href=\"http://openir.media.mit.edu/main/?p=540\" target=\"blank\">OpenIR</a> site.");
 	    //var layerRiskmapURL= '../jakarta/Tiles_Jakarta_Riskmap/{z}/{x}/{y}.png'; // old manual riskmap
-	    var layerRiskmapURL= '../../../jakarta-AutoGen/riskmap_autogen/{z}/{x}/{y}.png';
-	    var layerRiskmap = new L.TileLayer(layerRiskmapURL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true, attribution: 'Riskmap courtesy of <a href="http://openir.media.mit.edu">OpenIR</a>'});
+	    var layerRiskmapURL= '../../jakarta-AutoGen/riskmap_autogen/{z}/{x}/{y}.png';
+	    var layerRiskmap = new L.TileLayer(layerRiskmapURL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true, attribution: 'Riskmap courtesy of <a href="http://openir.media.mit.edu">OpenIR</a>'});
 	    //map.addLayer(layerRiskmap);
 	    var layerRiskmapannotated = new L.LayerGroup();
 	    layerRiskmapannotated.addLayer(layerRiskmap).addLayer(MarkerRiskmap);
-		//map.addLayer(layerRiskmapannotated);
+		map.addLayer(layerRiskmapannotated);
 		
 	/*	
 	//add elevation and marker                                          
@@ -123,17 +126,17 @@
 	
 	//add 432 layer and marker                                          
 		var Marker432 = new L.Marker(new L.LatLng(-6.03963,107.050953)).bindPopup("When you select the IR Vegetation layer, areas of deep vegetation are colored a deep red. The redder the color, the denser the vegetation, something that's hard to see in true-color or street maps.");
-	    var layer432URL= '../../../jakarta-AutoGen_drawing/432/{z}/{x}/{y}.png';
-	    var layer432 = new L.TileLayer(layer432URL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true});
-	    map.addLayer(layer432);
+	    var layer432URL= '../../jakarta-AutoGen/432/{z}/{x}/{y}.png';
+	    var layer432 = new L.TileLayer(layer432URL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true});
+	    //map.addLayer(layer432);
 		var layer432annotated = new L.LayerGroup();
 	    layer432annotated.addLayer(layer432).addLayer(Marker432);
 		map.addLayer(layer432annotated);
 		
 	//add 453 layer and marker                                          
 		var Marker453 = new L.Marker(new L.LatLng(-6.404514,106.576309)).bindPopup("When you select the IR Soil layer, you can see subtle variations in soil in brown, yellow, and green colors. The IR Soil layer is useful to examine with the IR Vegetation layer.");
-	    var layer453URL= '../../../jakarta_Autogen/453/{z}/{x}/{y}.png';
-	    var layer453 = new L.TileLayer(layer453URL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true});
+	    var layer453URL= '../../jakarta-AutoGen/453/{z}/{x}/{y}.png';
+	    var layer453 = new L.TileLayer(layer453URL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true});
 	    //map.addLayer(layer453);
 		var layer453annotated = new L.LayerGroup();
 	    layer453annotated.addLayer(layer453).addLayer(Marker453);
@@ -142,8 +145,8 @@
 
 	//add 543 layer & marker
 		var Marker543 = new L.Marker(new L.LatLng(-6.187477,106.86058)).bindPopup("Because many buildings are earth-toned, they are sometimes hard to distinguish. However, buildings and other impermeable surfaces are easily discernable by their pink-purple coloring when you select an IR Urban image.");
-	    var layer543URL= '../../../jakarta-AutoGen/543/{z}/{x}/{y}.png';
-	    var layer543 = new L.TileLayer(layer543URL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true});
+	    var layer543URL= '../../jakarta-AutoGen/543/{z}/{x}/{y}.png';
+	    var layer543 = new L.TileLayer(layer543URL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true});
 	    //map.addLayer(layer543);
 		var layer543annotated = new L.LayerGroup();
 	    layer543annotated.addLayer(layer543).addLayer(Marker543);
@@ -152,8 +155,8 @@
 
 	//add 754 layer & marker
 		var Marker754 = new L.Marker(new L.LatLng(-6.207956,107.099533)).bindPopup("This area looks like solid ground in a true color satellite image, but if you look at this area in an IR Moisture image, you'll easily see how this is an area of highly-irrigated rice paddies.");
-	    var layer754URL= '../../../jakarta-AutoGen/754/{z}/{x}/{y}.png';
-	    var layer754 = new L.TileLayer(layer754URL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true});
+	    var layer754URL= '../../jakarta-AutoGen/754/{z}/{x}/{y}.png';
+	    var layer754 = new L.TileLayer(layer754URL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true});
 	    //map.addLayer(layer754);
 	    var layer754annotated = new L.LayerGroup();
 	    layer754annotated.addLayer(layer754).addLayer(Marker754);
@@ -162,8 +165,8 @@
 		
 	//add 321 layer and marker                                          
 		var Marker321 = new L.Marker(new L.LatLng(-6.207956,107.099533)).bindPopup("This area looks like solid ground in a true color satellite image, but if you look at this area in an IR Moisture image, you'll easily see how this is an area of highly-irrigated rice paddies.");
-	    var layer321URL= '../../../jakarta-AutoGen/321/{z}/{x}/{y}.png';
-	    var layer321 = new L.TileLayer(layer321URL, {maxZoom: 18, scheme:'tms', updateWhenIdle:true, unloadInvisibleTiles:true, attribution: 'IR & Radar data courtesy of <a href="http://www2.jpl.nasa.gov/srtm/">NASA</a> & <a href="http://glcf.umiacs.umd.edu/">UMD GLCF</a>'});
+	    var layer321URL= '../../jakarta-AutoGen/321/{z}/{x}/{y}.png';
+	    var layer321 = new L.TileLayer(layer321URL, {maxZoom: 18, tms:true, updateWhenIdle:true, unloadInvisibleTiles:true, attribution: 'IR & Radar data courtesy of <a href="http://www2.jpl.nasa.gov/srtm/">NASA</a> & <a href="http://glcf.umiacs.umd.edu/">UMD GLCF</a>'});
 	    //map.addLayer(layer321);
 	    var layer321annotated = new L.LayerGroup();
 	    layer321annotated.addLayer(layer321).addLayer(Marker321);
@@ -180,22 +183,15 @@
 			'Satellite: True Color': layer321annotated
 		};
 		
-		//L.control.layers(irlayers).addTo(map);
+		L.control.layers(irlayers).addTo(map);
 		
-		var layersControl = new L.Control.Layers(irlayers);
+		//var layersControl = new L.Control.Layers(irlayers);
 
-		map.addControl(layersControl);
+		//map.addControl(layersControl);
 		
 	}
 		
-		
-		
-	</script>
-	//////
-	
-
-	
-	
+	</script>	
 	
 </body>
 
